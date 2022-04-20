@@ -246,3 +246,7 @@ func (r Result[T]) ContainsErr(err error) bool {
 	}
 	return errors.Is(r.err, err)
 }
+
+func (r Result[T]) Unfold() (T, error) {
+	return r.ok, r.err
+}
